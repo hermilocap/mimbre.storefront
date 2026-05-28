@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diseño Atemporal · Mimbre Artesanal</title>
+    <meta name="description"
+          content="Piezas de mimbre tejidas a mano. Lotes limitados de diseño biofílico, sostenible y atemporal." />
+    <meta name="theme-color" content="#2C2822" />
+
+    <!-- Open Graph -->
+    <meta property="og:title"       content="Diseño Atemporal · Mimbre Artesanal" />
+    <meta property="og:description" content="Piezas únicas de mimbre tejidas a mano. Drops mensuales limitados." />
+    <meta property="og:type"        content="website" />
+
+    <base href="/" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+          rel="stylesheet" />
+
+    <!-- Tailwind CSS (Play CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bone:   '#FAF7F0',
+                        linen:  '#F0EBE1',
+                        stone:  '#8C8579',
+                        carbon: '#2C2822',
+                        gold:   '#B8956A',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans:  ['Jost', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Sistema de diseño global -->
+    <link href="css/app.css" rel="stylesheet" />
+
+    <!-- Estilos scoped de componentes Blazor (auto-generado al compilar) -->
+    <link href="Mimbre.Storefront.styles.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="app">
+        <div id="app-loading">
+            <p class="loading-brand">Diseño Atemporal</p>
+            <p class="loading-label">Cargando colección&hellip;</p>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        Ocurrió un error inesperado.
+        <a href="">Recargar la página</a>
+        <button onclick="document.getElementById('blazor-error-ui').style.display='none'">&#10005;</button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════
+         Scroll listener para el NavBar transparente
+         Notifica a Blazor cuando se supera el umbral de 60px
+         ══════════════════════════════════════════════════ -->
+    <script>
+        window.scrollListener = {
+            init: function (dotnetRef) {
+                var threshold = 60;
+
+                var handler = function () {
+                    var scrolled = window.scrollY > threshold;
+                    dotnetRef.invokeMethodAsync('OnScroll', scrolled);
+                };
+
+                window.addEventListener('scroll', handler, { passive: true });
+
+                // Llamada inicial por si la página carga con scroll previo
+                handler();
+            }
+        };
+    </script>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+
+</body>
+</html>
