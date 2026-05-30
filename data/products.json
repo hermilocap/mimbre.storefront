@@ -12,7 +12,7 @@
     "Category": "Individual",
     "Material": "Vara de mimbre natural curada",
     "Badges": [ "Edición Limitada", "Pieza Única" ],
-    "IsSoldOut": false
+    "IsSoldOut": true
   },
   {
     "Id": "nesting-duo-01",
